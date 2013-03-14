@@ -77,7 +77,8 @@
             "properties":{
                 "id":{
                     "type":"string",
-                    "description":"MusicBrainz id"
+                    "description":"MusicBrainz id",
+                    "required":true
                 },
                 "country":{
                     "type":"string",
@@ -87,10 +88,12 @@
                     "type":"string"
                 },
                 "sort-name":{
-                    "type":"string"
+                    "type":"string",
+                    "required":true
                 },
                 "name":{
-                    "type":"string"
+                    "type":"string",
+                    "required":true
                 },
                 "type":{
                     "type":"string",
@@ -114,8 +117,7 @@
                         "$ref":"Release"
                     }
                 }
-            },
-            "required":["id","name","sort-name"]
+            }
         },
         "Release":{
             "properties":{
