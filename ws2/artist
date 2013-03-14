@@ -11,7 +11,7 @@
                 {
                     "httpMethod":"GET",
                     "summary":"Retrieve an artist by mbid",
-                    "notes":"Returns a pet based on ID (example)",
+                    "notes":"Returns the artist with the mbid",
                     "responseClass":"Artist",
                     "nickname":"getArtistById",
                     "parameters":[
@@ -26,6 +26,14 @@
                         {
                             "name":"inc",
                             "description":"includes",
+                            "paramType":"query",
+                            "required":false,
+                            "allowMultiple":false,
+                            "dataType":"string"
+                        },
+                        {
+                            "name":"search",
+                            "description":"search query",
                             "paramType":"query",
                             "required":false,
                             "allowMultiple":false,
