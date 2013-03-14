@@ -12,6 +12,8 @@ Install
 
 Put the complete archive to a web accessible location.
 The location is currently hard-coded in `ws2/api-docs.json`.
+You can use the provided Makefile in `ws2` to change between
+locations quickly.
 
 To display the documentation you need an instance of
 [swagger-ui](https://github.com/wordnik/swagger-ui),
