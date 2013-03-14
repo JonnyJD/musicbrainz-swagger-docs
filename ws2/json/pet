@@ -1,0 +1,101 @@
+{
+    "apiVersion":"0.2",
+    "swaggerVersion":"1.1",
+    "basePath":"http://petstore.swagger.wordnik.com/api",
+    "resourcePath":"/pet",
+    "apis":[
+        {
+            "path":"/pet.{format}/{petId}",
+            "description":"Operations about pets",
+            "operations":[
+                {
+                    "httpMethod":"GET",
+                    "summary":"Find pet by ID",
+                    "notes":"Returns a pet based on ID (example)",
+                    "responseClass":"Pet",
+                    "nickname":"getPetById",
+                    "parameters":[
+                        {
+                            "name":"petId",
+                            "description":"ID of pet that needs to be fetched",
+                            "paramType":"path",
+                            "required":true,
+                            "allowMultiple":false,
+                            "dataType":"string"
+                        }
+                    ],
+                    "errorResponses":[
+                        {
+                            "code":400,
+                            "reason":"Invalid ID supplied"
+                        },
+                        {
+                            "code":404,
+                            "reason":"Pet not found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+        
+    "models":{
+        "Category":{
+            "id":"Category",
+            "properties":{
+                "id":{
+                    "type":"long"
+                },
+                "name":{
+                    "type":"string"
+                }
+            }
+        },
+        "Pet":{
+            "id":"Pet",
+            "properties":{
+                "tags":{
+                    "items":{
+                        "$ref":"Tag"
+                    },
+                    "type":"Array"
+                },
+                "id":{
+                    "type":"long"
+                },
+                "category":{
+                    "type":"Category"
+                },
+                "status":{
+                    "allowableValues":{
+                        "valueType":"LIST",
+                        "values":["available","pending","sold"],
+                        "valueType":"LIST"
+                    },
+                    "description":"pet status in the store",
+                    "type":"string"
+                },
+                "name":{
+                    "type":"string"
+                },
+                "photoUrls":{
+                    "items":{
+                        "type":"string"
+                    },
+                    "type":"Array"
+                }
+            }
+        },
+        "Tag":{
+            "id":"Tag",
+            "properties":{
+                "id":{
+                    "type":"long"
+                },
+                "name":{
+                    "type":"string"
+                }
+            }
+        }
+    }
+}
