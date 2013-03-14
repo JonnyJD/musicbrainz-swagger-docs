@@ -1,0 +1,8 @@
+mbsandbox=http://mbsandbox.org/~jonnyjd/swagger/docs/ws2
+localhost=http://localhost/swagger-docs/ws2
+
+mbsandbox:
+	sed -i 's|\(\s*"basePath":\).*|\1"$(mbsandbox)",|' api-docs.json
+
+local:
+	sed -i 's|\(\s*"basePath":\).*|\1"$(localhost)",|' api-docs.json
