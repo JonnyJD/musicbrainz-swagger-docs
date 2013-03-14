@@ -1,0 +1,130 @@
+{
+    "apiVersion":"0.2",
+    "swaggerVersion":"1.1",
+    "basePath":"http://musicbrainz.org/ws/2",
+    "resourcePath":"/artist",
+    "apis":[
+        {
+            "path":"/artist/{mbid}",
+            "description":"MusicBrainz artist",
+            "operations":[
+                {
+                    "httpMethod":"GET",
+                    "summary":"Retrieve an artist by mbid",
+                    "notes":"Returns a pet based on ID (example)",
+                    "responseClass":"Artist",
+                    "nickname":"getArtistById",
+                    "parameters":[
+                        {
+                            "name":"mbid",
+                            "description":"MusicBrainz ID of the artist",
+                            "paramType":"path",
+                            "required":true,
+                            "allowMultiple":false,
+                            "dataType":"string"
+                        },
+                        {
+                            "name":"inc",
+                            "description":"includes",
+                            "paramType":"query",
+                            "required":false,
+                            "allowMultiple":false,
+                            "dataType":"string"
+                        },
+                        {
+                            "name":"fmt",
+                            "description":"format of the result",
+                            "paramType":"query",
+                            "required":false,
+                            "allowMultiple":false,
+                            "dataType":"string",
+                            "allowableValues":{
+                                "valueType":"LIST",
+                                "values":["xml", "json"]
+                            }
+                        }
+                    ],
+                    "errorResponses":[
+                        {
+                            "code":400,
+                            "reason":"Invalid mbid"
+                        },
+                        {
+                            "code":404,
+                            "reason":"Not Found"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+        
+    "models":{
+        "Artist":{
+            "id":"Artist",
+            "properties":{
+                "id":{
+                    "type":"string",
+                    "description":"MusicBrainz id"
+                },
+                "country":{
+                    "type":"string",
+                    "description":"2 letter country code"
+                },
+                "disambiguation":{
+                    "type":"string"
+                },
+                "sort-name":{
+                    "type":"string"
+                },
+                "name":{
+                    "type":"string"
+                },
+                "type":{
+                    "type":"string",
+                    "allowableValues":{
+                        "valueType":"LIST",
+                        "values":["Person","Group"]
+                    }
+                },
+                "ipis":{
+                    "type":"Array",
+                    "items":{
+                        "$ref":"string"
+                    }
+                },
+                "life-span":{
+                    "type":"LifeSpan"
+                },
+                "releases":{
+                    "type":"List",
+                    "items":{
+                        "$ref":"Release"
+                    }
+                }
+            },
+            "required":["id","name","sort-name"]
+        },
+        "Release":{
+            "properties":{
+                "country":{
+                    "type":"string",
+                    "description":"2 letter country code"
+                }
+            }
+        },
+        "LifeSpan":{
+            "properties":{
+                "ended":{
+                    "type":"boolean"
+                },
+                "begin":{
+                    "type":"string"
+                },
+                "end":{
+                    "type":"string"
+                }
+            }
+        }
+    }
+}

@@ -4,8 +4,8 @@
     "basePath":"http://mbsandbox.org/~jonnyjd/swagger/docs/ws2",
     "apis":[
         {
-            "path":"/{format}/pet",
-            "description":"pet api"
+            "path":"/artist",
+            "description":"artist resource"
         }
     ]
 }
