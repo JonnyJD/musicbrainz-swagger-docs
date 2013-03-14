@@ -6,6 +6,10 @@
         {
             "path":"/artist",
             "description":"artist resource"
+        },
+        {
+            "path":"/release",
+            "description":"release resource"
         }
     ]
 }

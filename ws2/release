@@ -2,11 +2,11 @@
     "apiVersion":"0.2",
     "swaggerVersion":"1.1",
     "basePath":"http://musicbrainz.org/ws/2",
-    "resourcePath":"/artist",
+    "resourcePath":"/release",
     "apis":[
         {
-            "path":"/artist/{mbid}",
-            "description":"MusicBrainz artist",
+            "path":"/release/{mbid}",
+            "description":"MusicBrainz release",
             "operations":[
                 {
                     "httpMethod":"GET",
@@ -14,14 +14,14 @@
                         "application/xml",
                         "application/json"
                         ],
-                    "summary":"Retrieve an artist by mbid",
-                    "notes":"Returns the artist with the mbid",
-                    "responseClass":"Artist",
-                    "nickname":"getArtistById",
+                    "summary":"Retrieve a release by mbid",
+                    "notes":"Returns the release with the mbid",
+                    "responseClass":"Release",
+                    "nickname":"getReleaseById",
                     "parameters":[
                         {
                             "name":"mbid",
-                            "description":"MusicBrainz ID of the artist",
+                            "description":"MusicBrainz ID of the release",
                             "paramType":"path",
                             "required":true,
                             "allowMultiple":false,
@@ -72,72 +72,16 @@
     ],
         
     "models":{
-        "Artist":{
-            "id":"Artist",
+        "Release":{
+            "id":"Release",
             "properties":{
                 "id":{
                     "type":"string",
-                    "description":"MusicBrainz id",
                     "required":true
                 },
                 "country":{
                     "type":"string",
                     "description":"2 letter country code"
-                },
-                "disambiguation":{
-                    "type":"string"
-                },
-                "sort-name":{
-                    "type":"string",
-                    "required":true
-                },
-                "name":{
-                    "type":"string",
-                    "required":true
-                },
-                "type":{
-                    "type":"string",
-                    "allowableValues":{
-                        "valueType":"LIST",
-                        "values":["Person","Group"]
-                    }
-                },
-                "ipis":{
-                    "type":"Array",
-                    "items":{
-                        "$ref":"string"
-                    }
-                },
-                "life-span":{
-                    "type":"LifeSpan"
-                },
-                "releases":{
-                    "type":"List",
-                    "items":{
-                        "$ref":"Release"
-                    }
-                }
-            }
-        },
-        "LifeSpan":{
-            "id":"LifeSpan",
-            "properties":{
-                "ended":{
-                    "type":"boolean"
-                },
-                "begin":{
-                    "type":"string"
-                },
-                "end":{
-                    "type":"string"
-                }
-            }
-        },
-        "UnMentioned":{
-            "id":"UnMentioned",
-            "properties":{
-                "bogus":{
-                    "type":"string"
                 }
             }
         }
