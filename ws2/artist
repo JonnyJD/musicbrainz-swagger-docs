@@ -10,6 +10,10 @@
             "operations":[
                 {
                     "httpMethod":"GET",
+                    "produces":[
+                        "application/xml",
+                        "application/json"
+                        ],
                     "summary":"Retrieve an artist by mbid",
                     "notes":"Returns the artist with the mbid",
                     "responseClass":"Artist",
