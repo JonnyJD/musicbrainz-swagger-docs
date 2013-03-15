@@ -1,0 +1,56 @@
+Index: swagger-ui/src/main/coffeescript/view/ParameterView.coffee
+===================================================================
+--- swagger-ui.orig/src/main/coffeescript/view/ParameterView.coffee
++++ swagger-ui/src/main/coffeescript/view/ParameterView.coffee
+@@ -39,13 +39,16 @@ class ParameterView extends Backbone.Vie
+     if @model.isList
+       Handlebars.templates.param_list
+     else
+-      if @options.readOnly
+-        if @model.required
+-          Handlebars.templates.param_readonly_required
+-        else
+-          Handlebars.templates.param_readonly
++      if @model.dataType == "Select"
++        Handlebars.templates.param_select
+       else
+-        if @model.required
+-          Handlebars.templates.param_required
++        if @options.readOnly
++          if @model.required
++            Handlebars.templates.param_readonly_required
++          else
++            Handlebars.templates.param_readonly
+         else
+-          Handlebars.templates.param
++          if @model.required
++            Handlebars.templates.param_required
++          else
++            Handlebars.templates.param
+Index: swagger-ui/src/main/template/param_select.handlebars
+===================================================================
+--- /dev/null
++++ swagger-ui/src/main/template/param_select.handlebars
+@@ -0,0 +1,22 @@
++<td class='code'>{{name}}</td>
++<td>
++    <div>
++    {{#if allowMultiple}}
++    	{{#each selectValues}}
++        <input type="checkbox" name="{{../name}}" value='{{value}}'> {{value}}<br>
++    	{{/each}}
++    {{else}}
++    	{{#each selectValues}}
++        <input type="radio" name="{{../name}}" value='{{value}}'> {{value}}<br>
++    	{{/each}}
++    {{/if}}
++    </div>
++</td>
++<td>
++    <table>
++    {{#each selectValues}}
++        <tr><td>{{value}}</td><td>{{{valueDescription}}}</td></tr>
++    {{/each}}
++    </table>
++</td>
++<td><span class="model-signature"></span></td>
