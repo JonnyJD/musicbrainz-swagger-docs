@@ -1,7 +1,7 @@
 {
     "apiVersion":"0.2",
     "swaggerVersion":"1.1",
-    "basePath":"http://mbsandbox.org/~jonnyjd/swagger/docs/ws2",
+    "basePath":"http://mbsandbox.org/~jonnyjd/swagger/docs",
     "apis":[
         {
             "path":"/ws2",
