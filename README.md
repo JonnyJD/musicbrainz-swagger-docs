@@ -7,6 +7,7 @@ See also
 The result can currently be seen on
 http://mbsandbox.org/~jonnyjd/swagger/
 
+
 Install
 -------
 
@@ -30,3 +31,12 @@ so it points to your `api-docs.json`.
 The documentation and swagger don't need to be on the same server.
 However, you might need to set up cross origin resource sharing (CORS)
 for this to work.
+
+
+Update
+------
+
+On the
+[swagger-core wiki](https://github.com/wordnik/swagger-core/wiki/API-Declaration)
+there is documentation on how to do the api documentation with swagger.
+Please open a pull request here if you have updates or additions.
