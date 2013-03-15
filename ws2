@@ -195,6 +195,42 @@
                 "country":{
                     "type":"string",
                     "description":"2 letter country code"
+                },
+                "media":{
+                    "type":"List",
+                    "items":{
+                        "$ref":"Medium"
+                    }
+                }
+            }
+        },
+        "Medium":{
+            "id":"Medium",
+            "properties":{
+                "track-offset":{
+                    "type":"int"
+                },
+                "tracks":{
+                    "type":"List",
+                    "items":{
+                        "$ref":"Track"
+                    }
+                }
+            }
+        },
+        "Track":{
+            "id":"Track",
+            "properties":{
+                "length":{
+                    "type":"int"
+                },
+                "number":{
+                    "type":"string",
+                    "description":"A textual position of the track"
+                },
+                "position":{
+                    "type":"int",
+                    "description":"The integer position in the TOC"
                 }
             }
         },
@@ -208,14 +244,6 @@
                     "type":"string"
                 },
                 "end":{
-                    "type":"string"
-                }
-            }
-        },
-        "UnMentioned":{
-            "id":"UnMentioned",
-            "properties":{
-                "bogus":{
                     "type":"string"
                 }
             }
