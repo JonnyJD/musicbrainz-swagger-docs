@@ -11,8 +11,8 @@ Install
 -------
 
 Put the complete archive to a web accessible location.
-The location is currently hard-coded in `ws2/api-docs.json`.
-You can use the provided Makefile in `ws2` to change between
+The location is currently hard-coded in `api-docs.json`.
+You can use the provided `Makefile` to change between
 locations quickly.
 
 To display the documentation you need an instance of
@@ -25,7 +25,7 @@ which can be built with
 
 The dist folder is static and can be copied to a web accessible location.
 You should change the `discoveryUrl` in `dist/index.html`
-so it points to your `ws2/api-docs.json`.
+so it points to your `api-docs.json`.
 
 The documentation and swagger don't need to be on the same server.
 However, you might need to set up cross origin resource sharing (CORS)

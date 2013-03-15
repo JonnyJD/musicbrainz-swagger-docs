@@ -1,11 +1,11 @@
 {
     "apiVersion":"0.2",
     "swaggerVersion":"1.1",
-    "basePath":"http://musicbrainz.org/ws/2",
-    "resourcePath":"/artist",
+    "basePath":"http://musicbrainz.org/",
+    "resourcePath":"/ws/2",
     "apis":[
         {
-            "path":"/artist/{mbid}",
+            "path":"/ws/2/artist/{mbid}",
             "description":"MusicBrainz artist",
             "operations":[
                 {
@@ -22,6 +22,72 @@
                         {
                             "name":"mbid",
                             "description":"MusicBrainz ID of the artist",
+                            "paramType":"path",
+                            "required":true,
+                            "allowMultiple":false,
+                            "dataType":"string"
+                        },
+                        {
+                            "name":"inc",
+                            "description":"includes",
+                            "paramType":"query",
+                            "required":false,
+                            "allowMultiple":false,
+                            "dataType":"string"
+                        },
+                        {
+                            "name":"search",
+                            "description":"search query",
+                            "paramType":"query",
+                            "required":false,
+                            "allowMultiple":false,
+                            "dataType":"string"
+                        },
+                        {
+                            "name":"fmt",
+                            "description":"format of the result",
+                            "paramType":"query",
+                            "required":false,
+                            "allowMultiple":false,
+                            "dataType":"string",
+                            "allowableValues":{
+                                "valueType":"LIST",
+                                "values":["xml", "json"]
+                            }
+                        }
+                    ],
+                    "errorResponses":[
+                        {
+                            "code":400,
+                            "reason":"Invalid mbid"
+                        },
+                        {
+                            "code":404,
+                            "reason":"Not Found"
+                        }
+                    ]
+                }
+            ]
+        },
+        
+        {
+            "path":"/ws/2/release/{mbid}",
+            "description":"MusicBrainz release",
+            "operations":[
+                {
+                    "httpMethod":"GET",
+                    "produces":[
+                        "application/xml",
+                        "application/json"
+                        ],
+                    "summary":"Retrieve a release by mbid",
+                    "notes":"Returns the release with the mbid",
+                    "responseClass":"Release",
+                    "nickname":"getReleaseById",
+                    "parameters":[
+                        {
+                            "name":"mbid",
+                            "description":"MusicBrainz ID of the release",
                             "paramType":"path",
                             "required":true,
                             "allowMultiple":false,
@@ -116,6 +182,19 @@
                     "items":{
                         "$ref":"Release"
                     }
+                }
+            }
+        },
+        "Release":{
+            "id":"Release",
+            "properties":{
+                "id":{
+                    "type":"string",
+                    "required":true
+                },
+                "country":{
+                    "type":"string",
+                    "description":"2 letter country code"
                 }
             }
         },
