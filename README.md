@@ -17,14 +17,25 @@ You can use the provided `Makefile` to change between
 locations quickly.
 
 To display the documentation you need an instance of
-[swagger-ui](https://github.com/wordnik/swagger-ui),
-which can be built with
+[swagger-ui](https://github.com/wordnik/swagger-ui):
+
+You can get a copy with:
 
     git clone https://github.com/wordnik/swagger-ui.git
     npm install
+
+Apply the patches in the `patches` folder of this repository.
+This can be done manually or with quilt:
+
+    cp -a ../musicbrainz-swagger-docs/patches .
+    quilt push -a
+
+The result needs some building:
+
     npm run-script build
 
-The dist folder is static and can be copied to a web accessible location.
+The now complete `dist` folder is static
+and can be copied to a web accessible location.
 You should change the `discoveryUrl` in `dist/index.html`
 so it points to your `api-docs.json`.
 
