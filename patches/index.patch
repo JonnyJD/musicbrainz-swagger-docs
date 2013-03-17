@@ -1,0 +1,16 @@
+created at v1.0.13
+
+Index: swagger-ui/src/main/html/index.html
+===================================================================
+--- swagger-ui.orig/src/main/html/index.html
++++ swagger-ui/src/main/html/index.html
+@@ -19,8 +19,7 @@
+     <script type="text/javascript">
+ 	$(function () {
+ 	    window.swaggerUi = new SwaggerUi({
+-                discoveryUrl:"http://petstore.swagger.wordnik.com/api/api-docs.json",
+-                apiKey:"special-key",
++                discoveryUrl:"http://localhost/swagger-docs/api-docs.json",
+                 dom_id:"swagger-ui-container",
+                 supportHeaderParams: false,
+                 supportedSubmitMethods: ['get', 'post', 'put'],
