@@ -1,8 +1,19 @@
-mbsandbox=http://mbsandbox.org/~jonnyjd/swagger/docs
+# Documentation
+mbsandbox_docs=http://mbsandbox.org/~jonnyjd/swagger/docs
 localhost=http://localhost/swagger-docs
+# Web Service
+musicbrainz=http://musicbrainz.org/
+mbsandbox=http://jonnyjd.mbsandbox.org/
+localnet=http://192.168.1.113:5000/
 
 mbsandbox:
-	sed -i 's|\(\s*"basePath":\).*|\1"$(mbsandbox)",|' api-docs.json
+	sed -i 's|\(\s*"basePath":\).*|\1"$(mbsandbox_docs)",|' api-docs.json
+	sed -i 's|\(\s*"basePath":\).*|\1"$(musicbrainz)",|' ws2
+
+preflight:
+	sed -i 's|\(\s*"basePath":\).*|\1"$(mbsandbox_docs)",|' api-docs.json
+	sed -i 's|\(\s*"basePath":\).*|\1"$(mbsandbox)",|' ws2
 
 local:
 	sed -i 's|\(\s*"basePath":\).*|\1"$(localhost)",|' api-docs.json
+	sed -i 's|\(\s*"basePath":\).*|\1"$(localnet)",|' ws2
